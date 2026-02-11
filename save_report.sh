@@ -18,8 +18,8 @@ TITLE="$2"
 REPORTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/reports"
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# 生成安全文件名：移除特殊字符，空格替换为下划线
-SAFE_TITLE=$(echo "$TITLE" | sed -e 's/[^[:alnum:] _-]//g' -e 's/ /_/g')
+# 生成安全文件名：替换空格为下划线，保留中文字符和其他常用字符
+SAFE_TITLE=$(echo "$TITLE" | sed -e 's/[\/:*?"<>|]//g' -e 's/ /_/g')
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M")
 FILENAME="${TIMESTAMP}_${SAFE_TITLE}.html"
 FILEPATH="$REPORTS_DIR/$FILENAME"
