@@ -1,0 +1,76 @@
+2026-02-10 13:07:20,503 - real_login_test - INFO - 从Excel文件加载学生邮箱: /Users/yangyan/Downloads/同步空间/HelenOA/eicar/étudiants eicar-Hélène.xlsx (限制: 3)
+2026-02-10 13:07:20,973 - real_login_test - INFO - 找到 3 个有效邮箱进行测试
+2026-02-10 13:07:20,973 - real_login_test - INFO - [1/3] 验证邮箱: 1525391884@qq.com
+2026-02-10 13:07:20,974 - real_login_test - INFO - 开始验证: 1525391884@qq.com
+2026-02-10 13:07:22,550 - real_login_test - INFO -   尝试 1/2
+2026-02-10 13:07:23,305 - real_login_test - INFO -   导航到登录页面...
+2026-02-10 13:07:32,452 - real_login_test - INFO -   当前URL: https://connect.france-visas.gouv.fr/realms/usager/protocol/openid-connect/auth?response_type=code&client_id=fv-fo-keycloak-web&scope=openid&state=cJoLVQT3g9a-Xl7wdITeg5P0yW19UcYYY8oHb7Zjvhg%3D&redirect_uri=https://application-form.france-visas.gouv.fr/fv-fo-dde/login/oauth2/code/keycloak&nonce=g97irruV5u_LOuHWmstrsHaWjLxZv6bv0j2w35eqPW4
+2026-02-10 13:07:32,782 - real_login_test - INFO -   找到密码输入框: input[type="password"]
+2026-02-10 13:07:32,793 - real_login_test - INFO -   找到登录按钮: button[type="submit"]
+2026-02-10 13:07:33,115 - real_login_test - WARNING -   未找到登录表单元素，截图已保存: debug_login_page_1770700052.png
+2026-02-10 13:07:33,130 - real_login_test - WARNING -   登录失败: 检测到验证码要求
+2026-02-10 13:07:33,131 - real_login_test - WARNING -   检测到captcha_required，停止重试
+2026-02-10 13:07:33,380 - real_login_test - INFO -   等待 5.4 秒后继续下一个邮箱...
+2026-02-10 13:07:38,763 - real_login_test - INFO - [2/3] 验证邮箱: yezishuaifr@163.com
+2026-02-10 13:07:38,763 - real_login_test - INFO - 开始验证: yezishuaifr@163.com
+2026-02-10 13:07:40,554 - real_login_test - INFO -   尝试 1/2
+2026-02-10 13:07:41,250 - real_login_test - INFO -   导航到登录页面...
+2026-02-10 13:07:50,318 - real_login_test - INFO -   当前URL: https://connect.france-visas.gouv.fr/realms/usager/protocol/openid-connect/auth?response_type=code&client_id=fv-fo-keycloak-web&scope=openid&state=8KCi3t7dNLANihQWEG9uvwtdMNB9ByWSV7aL2CJGNB0%3D&redirect_uri=https://application-form.france-visas.gouv.fr/fv-fo-dde/login/oauth2/code/keycloak&nonce=rLWqKe3oP4RKu9Hu7T_zrDArJeaQiD5TONyJgCRGd8s
+2026-02-10 13:07:50,628 - real_login_test - INFO -   找到密码输入框: input[type="password"]
+2026-02-10 13:07:50,638 - real_login_test - INFO -   找到登录按钮: button[type="submit"]
+2026-02-10 13:07:50,921 - real_login_test - WARNING -   未找到登录表单元素，截图已保存: debug_login_page_1770700070.png
+2026-02-10 13:07:50,940 - real_login_test - WARNING -   登录失败: 检测到验证码要求
+2026-02-10 13:07:50,940 - real_login_test - WARNING -   检测到captcha_required，停止重试
+2026-02-10 13:07:51,192 - real_login_test - INFO -   等待 5.2 秒后继续下一个邮箱...
+2026-02-10 13:07:56,386 - real_login_test - INFO - [3/3] 验证邮箱: zhaoyr621@hotmail.com
+2026-02-10 13:07:56,387 - real_login_test - INFO - 开始验证: zhaoyr621@hotmail.com
+2026-02-10 13:07:58,241 - real_login_test - INFO -   尝试 1/2
+2026-02-10 13:07:58,944 - real_login_test - INFO -   导航到登录页面...
+2026-02-10 13:08:08,042 - real_login_test - INFO -   当前URL: https://connect.france-visas.gouv.fr/realms/usager/protocol/openid-connect/auth?response_type=code&client_id=fv-fo-keycloak-web&scope=openid&state=n1uiIUfXQ2jVxhn2k7CYeb9xyFco656u1WBVMUTq6KY%3D&redirect_uri=https://application-form.france-visas.gouv.fr/fv-fo-dde/login/oauth2/code/keycloak&nonce=mmdxlWNeH6rZuQ6gn1OffoTreFpYDeJOqQ-qDOIGpgc
+2026-02-10 13:08:08,358 - real_login_test - INFO -   找到密码输入框: input[type="password"]
+2026-02-10 13:08:08,367 - real_login_test - INFO -   找到登录按钮: button[type="submit"]
+2026-02-10 13:08:08,660 - real_login_test - WARNING -   未找到登录表单元素，截图已保存: debug_login_page_1770700088.png
+2026-02-10 13:08:08,679 - real_login_test - WARNING -   登录失败: 检测到验证码要求
+2026-02-10 13:08:08,679 - real_login_test - WARNING -   检测到captcha_required，停止重试
+France-Visas登录验证测试
+用户已选择方案A，开始执行...
+
+=== 开始France-Visas登录验证测试 ===
+
+配置:
+- 最大重试次数: 2
+- 重试延迟: 3秒
+- 有界面模式: 是
+
+加载 3 个测试邮箱:
+  1. 1525391884@qq.com
+  2. yezishuaifr@163.com
+  3. zhaoyr621@hotmail.com
+
+开始登录验证...
+密码: Shanghai2021
+注意: 浏览器窗口将打开，请勿手动操作
+
+
+验证完成!
+
+报告已保存:
+- 详细报告: login_test_results_20260210_130808.json
+- 简要报告: login_test_summary_20260210_130808.txt
+
+=== 测试总结 ===
+测试邮箱数: 3
+成功登录: 0
+失败登录: 3
+成功率: 0.0%
+⚠️  需要验证码: 3 个账户
+
+=== 建议 ===
+1. 所有登录尝试都失败，强烈建议手动验证密码有效性
+2. 密码 'Shanghai2021' 可能已过期或无效
+3. 3 个账户需要验证码，自动化需要处理验证码挑战
+4. 所有学生使用相同密码存在安全风险，建议考虑密码策略更新
+5. 自动化登录应谨慎进行，避免触发反爬虫机制
+
+✅ 测试完成!
+请查看报告文件获取详细信息
