@@ -32,12 +32,155 @@ echo "📁 文件路径: $FILEPATH"
 
 # 检查第一个参数是文件路径还是内容字符串
 if [ -f "$CONTENT" ]; then
-    echo "📄 检测到文件路径，正在复制文件..."
-    cp "$CONTENT" "$FILEPATH"
+    echo "📄 检测到文件路径，正在读取并转换为HTML..."
+    # 读取文件内容
+    REPORT_CONTENT=$(cat "$CONTENT")
 else
-    echo "📄 检测到内容字符串，正在写入文件..."
-    echo "$CONTENT" > "$FILEPATH"
+    echo "📄 检测到内容字符串，正在准备HTML转换..."
+    REPORT_CONTENT="$CONTENT"
 fi
+
+# 创建HTML格式的报告
+echo "🔧 正在生成HTML格式..."
+cat > "$FILEPATH" << HTML
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${TITLE} - OpenClaw 分析报告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .report-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .report-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .report-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .report-meta {
+            color: #666;
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .report-content {
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+            overflow-x: auto;
+        }
+        
+        .report-footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .emoji {
+            font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .report-container {
+                padding: 25px 15px;
+            }
+            
+            .report-title {
+                font-size: 1.8rem;
+            }
+            
+            .report-content {
+                padding: 20px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <header class="report-header">
+            <h1 class="report-title">${TITLE}</h1>
+            <div class="report-meta">
+                <span>📅 ${TIMESTAMP//_/ }</span>
+                <span>📊 OpenClaw 自动化生成</span>
+            </div>
+        </header>
+        
+        <main>
+            <div class="report-content">${REPORT_CONTENT}</div>
+        </main>
+        
+        <footer class="report-footer">
+            <p>由 OpenClaw 自动化生成 • 报告时间: ${TIMESTAMP//_/ }</p>
+            <a href="../" class="back-link">← 返回报告列表</a>
+        </footer>
+    </div>
+</body>
+</html>
+HTML
 
 echo "✅ 报告已保存到: $FILEPATH"
 
