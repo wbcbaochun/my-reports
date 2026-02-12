@@ -1,0 +1,176 @@
+{
+  "analysis_time": "2026-02-12 21:01:59",
+  "status": "success",
+  "top_industries": [
+    {
+      "industry_name": "上证消费",
+      "industry_code": "sh.000013",
+      "current_price": 303.79,
+      "max_price_120": 303.79,
+      "min_price_60": 302.19,
+      "drawdown": 0.5,
+      "volume_ratio": 1.25,
+      "price_break_ma20": true,
+      "price_break_high": true,
+      "macd_golden_cross": false,
+      "rsi_recovery": false,
+      "rsi_current": 100.0,
+      "ma20": 303.44,
+      "recent_high": 303.76,
+      "score": 4,
+      "condition1": false,
+      "condition2": false,
+      "condition3": true,
+      "condition4": false,
+      "all_conditions_met": false,
+      "news": [
+        {
+          "title": "新闻搜索结果",
+          "content": "## Answer\n\nIn China, consumerism continues to outweigh nationalism despite recent diplomatic tensions with the U.S. and Japan. Urban middle-class and younger Chinese consumers are not making purchasin"
+        }
+      ]
+    },
+    {
+      "industry_name": "上证工业",
+      "industry_code": "sh.000009",
+      "current_price": 7356.45,
+      "max_price_120": 7453.48,
+      "min_price_60": 6123.48,
+      "drawdown": 17.8,
+      "volume_ratio": 0.79,
+      "price_break_ma20": true,
+      "price_break_high": false,
+      "macd_golden_cross": false,
+      "rsi_recovery": false,
+      "rsi_current": 46.4,
+      "ma20": 7267.7,
+      "recent_high": 7501.97,
+      "score": 3,
+      "condition1": false,
+      "condition2": false,
+      "condition3": true,
+      "condition4": false,
+      "all_conditions_met": false,
+      "news": [
+        {
+          "title": "新闻搜索结果",
+          "content": "## Answer\n\nSiemens AG reported higher revenue in its latest financial update, driven by its industrial businesses. The company posted a net income of 2.22 billion EUR for Q1, up from 1.79 billion EUR "
+        }
+      ]
+    },
+    {
+      "industry_name": "上证能源",
+      "industry_code": "sh.000010",
+      "current_price": 10399.66,
+      "max_price_120": 10505.21,
+      "min_price_60": 9713.47,
+      "drawdown": 7.5,
+      "volume_ratio": 0.72,
+      "price_break_ma20": true,
+      "price_break_high": false,
+      "macd_golden_cross": false,
+      "rsi_recovery": false,
+      "rsi_current": 52.5,
+      "ma20": 10327.52,
+      "recent_high": 10537.21,
+      "score": 3,
+      "condition1": false,
+      "condition2": false,
+      "condition3": true,
+      "condition4": false,
+      "all_conditions_met": false,
+      "news": [
+        {
+          "title": "新闻搜索结果",
+          "content": "## Answer\n\nThe latest news on 上证能源 is not directly available in the provided data sources. The sources mainly discuss financial updates from various companies and international news, but none specific"
+        }
+      ]
+    },
+    {
+      "industry_name": "上证金融",
+      "industry_code": "sh.000011",
+      "current_price": 7199.52,
+      "max_price_120": 7224.1,
+      "min_price_60": 7088.7,
+      "drawdown": 1.9,
+      "volume_ratio": 0.92,
+      "price_break_ma20": true,
+      "price_break_high": false,
+      "macd_golden_cross": false,
+      "rsi_recovery": false,
+      "rsi_current": 46.5,
+      "ma20": 7197.34,
+      "recent_high": 7227.71,
+      "score": 3,
+      "condition1": false,
+      "condition2": false,
+      "condition3": true,
+      "condition4": false,
+      "all_conditions_met": false,
+      "news": [
+        {
+          "title": "新闻搜索结果",
+          "content": "## Answer\n\nThe latest dynamics for 上证金融 (Shanghai Stock Exchange financial sector) as of 12/02/2026 13:02:07 include European stocks dipping due to AI worries affecting tech and financials, and Stingr"
+        }
+      ]
+    },
+    {
+      "industry_name": "上证医药",
+      "industry_code": "sh.000012",
+      "current_price": 225.82,
+      "max_price_120": 225.82,
+      "min_price_60": 224.42,
+      "drawdown": 0.6,
+      "volume_ratio": 1.27,
+      "price_break_ma20": true,
+      "price_break_high": false,
+      "macd_golden_cross": false,
+      "rsi_recovery": false,
+      "rsi_current": 79.6,
+      "ma20": 225.35,
+      "recent_high": 225.82,
+      "score": 3,
+      "condition1": false,
+      "condition2": false,
+      "condition3": true,
+      "condition4": false,
+      "all_conditions_met": false,
+      "news": [
+        {
+          "title": "新闻搜索结果",
+          "content": "## Answer\n\nThe latest dynamics in the Shanghai Medical and Pharmaceutical sector include the significant surge in McKesson's stock, which rose 17% following a strong Q3 earnings report and an increase"
+        }
+      ]
+    }
+  ],
+  "top_etfs": [],
+  "top_recommendations": [
+    {
+      "type": "industry",
+      "name": "上证消费",
+      "code": "sh.000013",
+      "score": 4.5,
+      "breakout_score": 4.5,
+      "news_count": 1,
+      "all_conditions_met": false
+    },
+    {
+      "type": "industry",
+      "name": "上证工业",
+      "code": "sh.000009",
+      "score": 3.5,
+      "breakout_score": 3.5,
+      "news_count": 1,
+      "all_conditions_met": false
+    },
+    {
+      "type": "industry",
+      "name": "上证能源",
+      "code": "sh.000010",
+      "score": 3.5,
+      "breakout_score": 3.5,
+      "news_count": 1,
+      "all_conditions_met": false
+    }
+  ]
+}

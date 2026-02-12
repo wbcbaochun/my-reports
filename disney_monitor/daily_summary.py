@@ -9,9 +9,12 @@ import os
 import sys
 from datetime import datetime
 import pandas as pd
+import json
 
 DATA_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "wait_times.csv")
 OUTPUT_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "daily_summary.txt")
+OUTPUT_HTML = os.path.join(os.path.dirname(os.path.abspath(__file__)), "daily_summary.html")
+TEMPLATE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "report_template.html")
 
 def load_data():
     """加载CSV数据"""

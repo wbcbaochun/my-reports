@@ -314,6 +314,19 @@ def main():
         print(f"\n⚠️ 未发现完全符合全部条件的行业板块")
     
     print("\n" + "=" * 60)
+    
+    # 返回结果字典
+    return {
+        'analysis_time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        'total_analyzed': len(results),
+        'breakout_industries': [r for r in results if r['all_conditions_met']],
+        'top_industries': results[:5],  # 前5个高分行业
+        'all_results': results
+    }
+
+def analyze_all_industries():
+    """分析所有行业并返回结果"""
+    return main()
 
 if __name__ == "__main__":
     main()
