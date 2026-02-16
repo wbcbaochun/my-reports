@@ -1,0 +1,143 @@
+{
+  "date": "2026-02-16T15:13:07.669340",
+  "student_id": "son_of_wangbc",
+  "questions_count": 10,
+  "questions": [
+    {
+      "id": "ch_301",
+      "question": "阅读短文，回答问题：\n春天来了，小草从土里钻出来，嫩嫩的，绿绿的。花园里，各种各样的花都开了，红的像火，粉的像霞，白的像雪。\n\n问题：文中用什么比喻红色的花？",
+      "options": [
+        "像火",
+        "像霞",
+        "像雪",
+        "像云"
+      ],
+      "correct_answer": "像火",
+      "explanation": "文中说红的像火，粉的像霞，白的像雪。",
+      "difficulty": 2,
+      "tags": [
+        "阅读理解",
+        "比喻"
+      ],
+      "subject": "语文",
+      "category": "阅读理解"
+    },
+    {
+      "id": "ch_002",
+      "question": "选择正确的汉字填空：\n春天来了，小（   ）从土里钻出来了。",
+      "options": [
+        "草",
+        "早",
+        "操",
+        "曹"
+      ],
+      "correct_answer": "草",
+      "explanation": "小草从土里钻出来，草字是正确的。",
+      "difficulty": 1,
+      "tags": [
+        "汉字",
+        "词语"
+      ],
+      "subject": "语文",
+      "category": "拼音与汉字"
+    },
+    {
+      "id": "ch_101",
+      "question": "解释词语的意思：\n津津有味",
+      "correct_answer": "形容很有滋味或很有兴趣的样子",
+      "explanation": "津津有味常用来形容吃东西有滋味或读书、听故事很有兴趣。",
+      "difficulty": 2,
+      "tags": [
+        "成语",
+        "词语解释"
+      ],
+      "subject": "语文",
+      "category": "词语理解"
+    },
+    {
+      "id": "ch_202",
+      "question": "修改病句：\n我穿了一件新衣服和一双新鞋子去学校。",
+      "correct_answer": "我穿了一件新衣服和一双新鞋去学校。",
+      "explanation": "鞋子应该说一双新鞋，更符合汉语表达习惯。",
+      "difficulty": 3,
+      "tags": [
+        "病句修改"
+      ],
+      "subject": "语文",
+      "category": "句子练习"
+    },
+    {
+      "id": "math_101",
+      "question": "把小数化成分数：0.25 = ?",
+      "correct_answer": "1/4",
+      "explanation": "0.25 = 25/100 = 1/4",
+      "difficulty": 2,
+      "tags": [
+        "小数分数转换"
+      ],
+      "subject": "数学",
+      "category": "小数与分数"
+    },
+    {
+      "id": "math_302",
+      "question": "一箱苹果有24个，妈妈买了3箱，一共买了多少个苹果？",
+      "correct_answer": "72",
+      "explanation": "24 × 3 = 72，一共买了72个苹果。",
+      "difficulty": 2,
+      "tags": [
+        "乘法应用"
+      ],
+      "subject": "数学",
+      "category": "应用题"
+    },
+    {
+      "id": "math_201",
+      "question": "一个长方形的长是8厘米，宽是5厘米，它的周长是多少厘米？",
+      "correct_answer": "26",
+      "explanation": "长方形周长 = (长+宽)×2 = (8+5)×2 = 13×2 = 26厘米",
+      "difficulty": 2,
+      "tags": [
+        "周长计算"
+      ],
+      "subject": "数学",
+      "category": "几何图形"
+    },
+    {
+      "id": "eng_002",
+      "question": "根据中文写出英文单词：\n书包",
+      "correct_answer": "schoolbag",
+      "explanation": "书包的英文是schoolbag。",
+      "difficulty": 1,
+      "tags": [
+        "学习用品"
+      ],
+      "subject": "英语",
+      "category": "单词拼写"
+    },
+    {
+      "id": "eng_402",
+      "question": "选择恰当的应答：\nWhat's your name?\nA. I'm ten years old. B. My name is Lucy. C. I like apples. D. Thank you.",
+      "correct_answer": "B",
+      "explanation": "What's your name?问名字，回答应该是My name is...",
+      "difficulty": 2,
+      "tags": [
+        "自我介绍"
+      ],
+      "subject": "英语",
+      "category": "日常对话"
+    },
+    {
+      "id": "eng_202",
+      "question": "阅读短文，回答问题：\nMy name is Lily. I have a red schoolbag. In my schoolbag, I have two books and three pencils.\n\n问题：What color is Lily's schoolbag?",
+      "correct_answer": "red",
+      "explanation": "文中说I have a red schoolbag。",
+      "difficulty": 2,
+      "tags": [
+        "阅读理解",
+        "颜色"
+      ],
+      "subject": "英语",
+      "category": "阅读理解"
+    }
+  ]
+}
