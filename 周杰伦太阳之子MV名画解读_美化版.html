@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周杰伦《太阳之子》MV - 世界名画与艺术解读</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+SC:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+        }
+        
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+        
+        /* 光斑背景效果 */
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(120, 119, 198, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 119, 198, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+        
+        .slide-content {
+            max-width: 100%;
+            width: 100%;
+            z-index: 10;
+            text-align: center;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 300;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #e0e7ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+        
+        .painting-image {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            margin: 1.5rem auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .painting-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            text-align: left;
+        }
+        
+        .info-card h4 {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+        
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .feature-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: #6366f1;
+            font-size: 0.6rem;
+            top: 0.9rem;
+        }
+        
+        .highlight {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+        
+        .france-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #0055a4, #ef4444);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        /* 进度导航条 */
+        .progress-nav {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 100;
+            padding: 0.75rem 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .progress-dot.active {
+            background: #fff;
+            transform: scale(1.3);
+        }
+        
+        .nav-hint {
+            position: fixed;
+            bottom: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            z-index: 100;
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-left: 3px solid #6366f1;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .artist-name {
+            font-size: 1.25rem;
+            color: #6366f1;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .year-badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+        
+        .mv-scene {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: left;
+        }
+        
+        .mv-scene h4 {
+            color: #fbbf24;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mv-scene p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .cover-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            margin: 2rem auto;
+            box-shadow: 0 0 60px rgba(99, 102, 241, 0.3);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 0.25rem;
+        }
+        
+        .painting-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+        
+        .painting-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .painting-item h5 {
+            font-size: 0.8rem;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+        
+        .painting-item p {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        @media (max-width: 380px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .painting-image { max-width: 280px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide 1: 封面 -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-number">1 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">FRENCH ART EDUCATION</div>
+                <h1>太阳之子</h1>
+                <p class="subtitle">周杰伦 MV 世界名画与艺术解读</p>
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/21/Jay_Chou_-_Children_of_the_Sun.png" 
+                     alt="周杰伦太阳之子专辑封面" 
+                     class="cover-image"
+                     onerror="this.style.display='none'">
+                <div class="info-card">
+                    <p style="text-align: center; font-size: 0.9rem;">
+                        流行文化与古典艺术的跨界对话<br>
+                        <span style="color: rgba(255,255,255,0.5);">法国文化课教学素材</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: MV概述 -->
+        <div class="slide" data-slide="2">
+            <div class="slide-number">2 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">PROJECT OVERVIEW</div>
+                <h2>六年磨一剑</h2>
+                <p class="subtitle">华语乐坛史上最昂贵的MV制作</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">6'58"</div>
+                        <div class="stat-label">MV时长</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">2000万+</div>
+                        <div class="stat-label">制作成本(人民币)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">2年3月</div>
+                        <div class="stat-label">制作周期</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">30+</div>
+                        <div class="stat-label">致敬名画</div>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h4>制作团队</h4>
+                    <p>新西兰 Weta Workshop（维塔工作室）<br>
+                    <span style="color: rgba(255,255,255,0.5);">代表作：《指环王》《阿凡达》</span></p>
+                </div>
+                
+                <div class="mv-scene">
+                    <h4>剧情主线</h4>
+                    <p>侦探周杰伦追查吸血鬼凶手的悬疑故事，融合艺术史与奇幻元素</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: 核心名画清单 -->
+        <div class="slide" data-slide="3">
+            <div class="slide-number">3 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">MASTERPIECES</div>
+                <h2>MV中的核心名画</h2>
+                <p class="subtitle">八幅改变世界艺术史的经典之作</p>
+                
+                <div class="painting-grid">
+                    <div class="painting-item">
+                        <h5>《吻》<span class="france-tag" style="font-size: 0.6rem; padding: 0.1rem 0.4rem;">奥地利</span></h5>
+                        <p>克林姆 · 1908</p>
+                    </div>
+                    <div class="painting-item">
+                        <h5>《马拉之死》<span class="france-tag" style="font-size: 0.6rem; padding: 0.1rem 0.4rem;">法国</span></h5>
+                        <p>大卫 · 1793</p>
+                    </div>
+                    <div class="painting-item">
+                        <h5>《蒙娜丽莎》<span class="france-tag" style="font-size: 0.6rem; padding: 0.1rem 0.4rem;">卢浮宫</span></h5>
+                        <p>达芬奇 · 1519</p>
+                    </div>
+                    <div class="painting-item">
+                        <h5>《夜莺》<span class="france-tag" style="font-size: 0.6rem; padding: 0.1rem 0.4rem;">美国</span></h5>
+                        <p>霍普 · 1942</p>
+                    </div>
+                    <div class="painting-item">
+                        <h5>《奥菲莉亚》<span class="france-tag" style="font-size: 0.6rem; padding: 0.1rem 0.4rem;">英国</span></h5>
+                        <p>米莱斯 · 1852</p>
+                    </div>
+                    <div class="painting-item">
+                        <h5>《地狱》<span class="france-tag" style="font-size: 0.6rem; padding: 0.1rem 0.4rem;">法国</span></h5>
+                        <p>布格罗 · 1850</p>
+                    </div>
+                    <div class="painting-item">
+                        <h5>《酒吧》<span class="france-tag" style="font-size: 0.6rem; padding: 0.1rem 0.4rem;">法国</span></h5>
+                        <p>马奈 · 1882</p>
+                    </div>
+                    <div class="painting-item">
+                        <h5>《向日葵》<span class="france-tag" style="font-size: 0.6rem; padding: 0.1rem 0.4rem;">荷兰</span></h5>
+                        <p>梵高 · 1888</p>
+                    </div>
+                </div>
+                
+                <div class="quote">
+                    "每一幅画都是一扇窗，通向一个时代的灵魂"
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: 《吻》-->
+        <div class="slide" data-slide="4">
+            <div class="slide-number">4 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">THE KISS · 1908</div>
+                <h2>金色的沉溺</h2>
+                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg/1024px-The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg" 
+                     alt="The Kiss by Gustav Klimt" 
+                     class="painting-image">
+                
+                <div class="artist-name">古斯塔夫 · 克林姆 <span class="france-tag">奥地利</span></div>
+                <div class="year-badge">维也纳分离派 · 美景宫美术馆</div>
+                
+                <div class="info-card">
+                    <h4>艺术特色</h4>
+                    <ul class="feature-list">
+                        <li>大量使用<span class="highlight">金箔</span>，呈现拜占庭圣像画的神圣感</li>
+                        <li>融合<span class="highlight">日本浮世绘</span>的平面线条美学</li>
+                        <li>情侣跪在花草边缘，边缘之外是悬空的深渊</li>
+                    </ul>
+                </div>
+                
+                <div class="mv-scene">
+                    <h4>MV中的意义</h4>
+                    <p>金色光泽重现画作氛围，象征明知危险仍沉溺的情感</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: 《马拉之死》-->
+        <div class="slide" data-slide="5">
+            <div class="slide-number">5 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">THE DEATH OF MARAT · 1793</div>
+                <h2>革命的殉道者</h2>
+                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Jacques-Louis_David_-_La_Mort_de_Marat_-_Google_Art_Project_2.jpg/1024px-Jacques-Louis_David_-_La_Mort_de_Marat_-_Google_Art_Project_2.jpg" 
+                     alt="The Death of Marat by Jacques-Louis David" 
+                     class="painting-image">
+                
+                <div class="artist-name">雅克-路易 · 大卫 <span class="france-tag">法国</span></div>
+                <div class="year-badge">法国新古典主义 · 比利时皇家美术馆</div>
+                
+                <div class="info-card">
+                    <h4>历史背景</h4>
+                    <p>1793年7月，马拉在浴缸中遭刺杀。大卫赶到现场亲眼目睹后创作，将革命领袖塑造成<span class="highlight">现代圣徒</span>。</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>艺术特色</h4>
+                    <ul class="feature-list">
+                        <li>参考基督教<span class="highlight">圣殇图</span>传统</li>
+                        <li>马拉姿态近似从十字架放下的基督</li>
+                        <li>去除谋杀现场所有惊悚元素</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: 《蒙娜丽莎》-->
+        <div class="slide" data-slide="6">
+            <div class="slide-number">6 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">MONA LISA · 1503-1519</div>
+                <h2>永恒的微笑</h2>
+                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" 
+                     alt="Mona Lisa by Leonardo da Vinci" 
+                     class="painting-image">
+                
+                <div class="artist-name">列奥纳多 · 达芬奇 <span class="france-tag">卢浮宫</span></div>
+                <div class="year-badge">文艺复兴盛期 · 巴黎卢浮宫</div>
+                
+                <div class="info-card">
+                    <h4>艺术特色</h4>
+                    <ul class="feature-list">
+                        <li>世界上最著名的<span class="highlight">肖像画</span></li>
+                        <li>神秘的微笑：嘴角微微上扬，眼神深邃</li>
+                        <li>达芬奇独创的<span class="highlight">渐隐法(sfumato)</span></li>
+                    </ul>
+                </div>
+                
+                <div class="mv-scene">
+                    <h4>MV中的创意</h4>
+                    <p>闭着眼睛的蒙娜丽莎，在吸血鬼场景中流露出怜悯与不安</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: 《地狱里的但丁与维吉尔》-->
+        <div class="slide" data-slide="7">
+            <div class="slide-number">7 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">DANTE AND VIRGIL · 1850</div>
+                <h2>地狱的凝视</h2>
+                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/William-Adolphe_Bouguereau_%281825-1905%29_-_Dante_And_Virgil_In_Hell_%281850%29.jpg/1024px-William-Adolphe_Bouguereau_%281825-1905%29_-_Dante_And_Virgil_In_Hell_%281850%29.jpg" 
+                     alt="Dante and Virgil in Hell by William Bouguereau" 
+                     class="painting-image">
+                
+                <div class="artist-name">威廉 · 布格罗 <span class="france-tag">法国</span></div>
+                <div class="year-badge">法国学院派 · 巴黎奥赛博物馆</div>
+                
+                <div class="info-card">
+                    <h4>主题来源</h4>
+                    <p>取材于但丁《神曲》地狱篇，描绘但丁被维吉尔邀请游览地狱的场景。画面中央：罪人撕咬另一位罪人颈部。</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>艺术特色</h4>
+                    <ul class="feature-list">
+                        <li>布格罗<span class="highlight">为数不多</span>的色彩狂烈鲜明作品</li>
+                        <li>极具戏剧张力和震撼力</li>
+                    </ul>
+                </div>
+                
+                <div class="mv-scene">
+                    <h4>MV中的作用</h4>
+                    <p>吸血鬼撕咬场景的原型，暗示吸血鬼主题</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: 《佛里贝尔的酒吧》-->
+        <div class="slide" data-slide="8">
+            <div class="slide-number">8 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">BAR AT FOLIES-BERGÈRE · 1882</div>
+                <h2>都市的疏离</h2>
+                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Edouard_Manet%2C_A_Bar_at_the_Folies-Berg%C3%A8re.jpg/1024px-Edouard_Manet%2C_A_Bar_at_the_Folies-Berg%C3%A8re.jpg" 
+                     alt="A Bar at the Folies-Bergere by Edouard Manet" 
+                     class="painting-image">
+                
+                <div class="artist-name">爱德华 · 马奈 <span class="france-tag">法国</span></div>
+                <div class="year-badge">印象派先驱 · 巴黎奥赛博物馆</div>
+                
+                <div class="info-card">
+                    <h4>画作背景</h4>
+                    <p>以巴黎著名娱乐场所福利柏舞厅为背景，描绘年轻女侍者站在吧台后与顾客交流。画中吧台上放着一盘<span class="highlight">新鲜橘子</span>。</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>艺术特色</h4>
+                    <ul class="feature-list">
+                        <li>打破传统<span class="highlight">透视法则</span></li>
+                        <li>女侍者表情疏离，呈现现代都市的孤独感</li>
+                        <li>镜中反射创造空间层次感</li>
+                    </ul>
+                </div>
+                
+                <div class="mv-scene">
+                    <h4>MV中的作用</h4>
+                    <p>周杰伦在酒吧中寻找线索，女侍者递给他绿色苦艾酒</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: 其他名画 -->
+        <div class="slide" data-slide="9">
+            <div class="slide-number">9 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">MORE MASTERPIECES</div>
+                <h2>艺术群星</h2>
+                <p class="subtitle">跨越时空的艺术对话</p>
+                
+                <div class="info-card">
+                    <h4>伦勃朗《杜普教授的解剖课》<span class="france-tag" style="margin-left: 0.5rem;">荷兰</span></h4>
+                    <p>1632年，伦勃朗成名作<br>
+                    MV场景：侦探周杰伦验尸</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>米莱斯《奥菲莉亚》<span class="france-tag" style="margin-left: 0.5rem;">英国</span></h4>
+                    <p>拉斐尔前派代表作<br>
+                    莎士比亚《哈姆雷特》悲剧场景</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>梵高系列<span class="france-tag" style="margin-left: 0.5rem;">荷兰</span></h4>
+                    <p>《向日葵》《夜间咖啡馆》《包扎耳朵的自画像》<br>
+                    梵高以包扎耳朵的形象出现，与周杰伦对话</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>霍普《夜莺》<span class="france-tag" style="margin-left: 0.5rem;">美国</span></h4>
+                    <p>1942年，表现城市人的孤独与疏离<br>
+                    MV场景：周杰伦在雨夜酒吧追查吸血鬼</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: 法国艺术元素总结 -->
+        <div class="slide" data-slide="10">
+            <div class="slide-number">10 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">FRENCH ART SUMMARY</div>
+                <h2>法兰西的艺术印记</h2>
+                <p class="subtitle">法国名画在MV中的核心地位</p>
+                
+                <div class="painting-grid">
+                    <div class="painting-item">
+                        <h5>新古典主义</h5>
+                        <p>大卫的庄严构图</p>
+                    </div>
+                    <div class="painting-item">
+                        <h5>印象派</h5>
+                        <p>马奈的现代都市感</p>
+                    </div>
+                    <div class="painting-item">
+                        <h5>学院派</h5>
+                        <p>布格罗的精细写实</p>
+                    </div>
+                    <div class="painting-item">
+                        <h5>卢浮宫</h5>
+                        <p>蒙娜丽莎的永恒魅力</p>
+                    </div>
+                </div>
+                
+                <div class="quote">
+                    "法国拥有四幅MV核心名画，<br>
+                    占据艺术解读的半壁江山"
+                </div>
+                
+                <div class="info-card">
+                    <h4>教学价值</h4>
+                    <p>通过流行音乐MV，让学生了解法国艺术史的重要流派和代表作品，实现<span class="highlight">艺术教育的现代化传播</span>。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: 课堂讨论 -->
+        <div class="slide" data-slide="11">
+            <div class="slide-number">11 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">CLASS DISCUSSION</div>
+                <h2>思考与对话</h2>
+                <p class="subtitle">五个值得深思的问题</p>
+                
+                <div class="info-card" style="margin-bottom: 0.75rem;">
+                    <h4>问题 1</h4>
+                    <p>为什么周杰伦选择这些法国名画？<br>
+                    <span style="color: rgba(255,255,255,0.5);">艺术价值与流行文化的结合</span></p>
+                </div>
+                
+                <div class="info-card" style="margin-bottom: 0.75rem;">
+                    <h4>问题 2</h4>
+                    <p>《马拉之死》的政治宣传功能与艺术价值如何平衡？</p>
+                </div>
+                
+                <div class="info-card" style="margin-bottom: 0.75rem;">
+                    <h4>问题 3</h4>
+                    <p>比较《蒙娜丽莎》原作与MV中的闭眼蒙娜丽莎<br>
+                    <span style="color: rgba(255,255,255,0.5);">艺术家如何重新诠释经典？</span></p>
+                </div>
+                
+                <div class="info-card" style="margin-bottom: 0.75rem;">
+                    <h4>问题 4</h4>
+                    <p>印象派（马奈）与学院派（布格罗）的风格差异</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>问题 5</h4>
+                    <p>通过这支MV，你对法国艺术有什么新的认识？</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: 参考资料 -->
+        <div class="slide" data-slide="12">
+            <div class="slide-number">12 / 12</div>
+            <div class="slide-content">
+                <div class="section-title">REFERENCES</div>
+                <h2>延伸阅读</h2>
+                
+                <div class="info-card">
+                    <h4>相关博物馆</h4>
+                    <ul class="feature-list">
+                        <li>巴黎卢浮宫 — 《蒙娜丽莎》</li>
+                        <li>巴黎奥赛博物馆 — 马奈、布格罗作品</li>
+                        <li>比利时皇家美术馆 — 《马拉之死》</li>
+                        <li>奥地利美景宫 — 克林姆《吻》</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h4>延伸阅读</h4>
+                    <ul class="feature-list">
+                        <li>法国大革命与艺术</li>
+                        <li>印象派运动历史</li>
+                        <li>新古典主义艺术特点</li>
+                        <li>周杰伦《最伟大的作品》艺术彩蛋</li>
+                    </ul>
+                </div>
+                
+                <div class="mv-scene" style="margin-top: 1.5rem;">
+                    <h4>MV观看</h4>
+                    <p>周杰伦官方 YouTube 频道<br>
+                    时长：6分58秒</p>
+                </div>
+                
+                <div style="margin-top: 2rem; text-align: center;">
+                    <p style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">
+                        法国文化课教学素材<br>
+                        <span style="color: #6366f1;">Merci !</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航提示 -->
+    <div class="nav-hint">← → 滑动或点击切换</div>
+    
+    <!-- 进度导航 -->
+    <div class="progress-nav">
+        <div class="progress-dot active" data-slide="1"></div>
+        <div class="progress-dot" data-slide="2"></div>
+        <div class="progress-dot" data-slide="3"></div>
+        <div class="progress-dot" data-slide="4"></div>
+        <div class="progress-dot" data-slide="5"></div>
+        <div class="progress-dot" data-slide="6"></div>
+        <div class="progress-dot" data-slide="7"></div>
+        <div class="progress-dot" data-slide="8"></div>
+        <div class="progress-dot" data-slide="9"></div>
+        <div class="progress-dot" data-slide="10"></div>
+        <div class="progress-dot" data-slide="11"></div>
+        <div class="progress-dot" data-slide="12"></div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 12;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.progress-dot');
+            
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+            
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev');
+                if (index + 1 === currentSlide) {
+                    slide.classList.add('active');
+                } else if (index + 1 < currentSlide) {
+                    slide.classList.add('prev');
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === currentSlide);
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+        
+        // 键盘导航
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+        
+        // 点击导航
+        document.querySelectorAll('.progress-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentSlide = parseInt(dot.dataset.slide);
+                showSlide(currentSlide);
+            });
+        });
+        
+        // 触摸滑动支持
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+        
+        // 点击幻灯片区域也可切换
+        document.querySelector('.slide-container').addEventListener('click', (e) => {
+            if (e.target.closest('.progress-nav')) return;
+            
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            
+            if (x > rect.width / 2) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        });
+    </script>
+</body>
+</html>
